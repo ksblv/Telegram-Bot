@@ -3,7 +3,7 @@ import random
 from telebot import types
 
 # Загружаем список поговорок
-file = open('/facts.txt', 'r', encoding='UTF-8')
+file = open('facts.txt', 'r', encoding='UTF-8')
 facts  = file.read().split('\n')
 file.close()
 # Создаем бота
