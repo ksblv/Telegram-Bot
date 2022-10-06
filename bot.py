@@ -16,15 +16,17 @@ def start(message, res=False):
         item1=types.KeyboardButton("Факт")
         item2=types.KeyboardButton("Связаться со мной")
         markup.add(item1, item2)
-        bot.send_message(message.chat.id, 'Привет! Нажми: \nФакт для получения интересного факта о концерне BMW',  reply_markup=markup)
+        bot.send_message(message.chat.id, 'Привет! Нажми  "Факт" для получения интересного факта о концерне BMW',  reply_markup=markup)
             
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
     # Если юзер прислал 1, выдаем ему случайный факт
     if message.text.strip() == 'Факт' :
             answer = random.choice(facts)
-    if message.text.strip() == 'Связаться со мной' :
-            answer = 't.me/ksblv'
+    elif message.text.strip() == 'Связаться со мной':
+        answer = 't.me/ksblv'
+    else:
+        answer = 'Я тебя не понимаю('
     # Отсылаем юзеру сообщение в его чат
     bot.send_message(message.chat.id, answer)
     
